@@ -31,20 +31,23 @@ const Order = () => {
 
   const handleAddToCart = (item) => {
     if (user) {
-      fetch("http://localhost:5000/carts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          uid: user.uid,
-          menuId: item._id,
-          name: item.name,
-          image: item.image,
-          price: item.price,
-          category: item.category,
-        }),
-      })
+      fetch(
+        "https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/carts",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            uid: user.uid,
+            menuId: item._id,
+            name: item.name,
+            image: item.image,
+            price: item.price,
+            category: item.category,
+          }),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           refetch();
@@ -88,7 +91,7 @@ const Order = () => {
 
           {menuCategory.map((e, index) => (
             <TabPanel key={index}>
-              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid px-2 gap-5 grid-cols-2 lg:grid-cols-3">
                 {menuItems.map((item) => (
                   <FoodCard
                     key={item._id}

@@ -5,7 +5,7 @@ const FoodCard = ({ item, handleAddToCart }) => {
   const { image, name, price, recipe } = item;
 
   return (
-    <div className="col-span-1 overflow-hidden bg-base-200">
+    <div className="col-span-1 overflow-hidden bg-base-200 hover:shadow">
       <div className="h-80 relative">
         <img src={image} alt="image" className="w-full h-full object-cover" />
         <p className="bg-beer text-white absolute px-3 py-1 top-4 right-4">

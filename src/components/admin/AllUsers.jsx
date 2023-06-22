@@ -7,9 +7,12 @@ const AllUsers = () => {
   const [data, refetch] = useUsers();
 
   const handleDeleteUser = (_id) => {
-    fetch(`http://localhost:5000/user/admin/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/user/admin/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         if (res.acknowledged) {
@@ -34,13 +37,16 @@ const AllUsers = () => {
       },
     }).then((value) => {
       if (value === "admin") {
-        fetch(`http://localhost:5000/user/admin/${_id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ role: value }),
-        })
+        fetch(
+          `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/user/admin/${_id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ role: value }),
+          }
+        )
           .then((res) => res.json())
           .then((res) => {
             if (res.acknowledged) {

@@ -38,11 +38,16 @@ const Authentication = () => {
                 email,
                 photoURL: null,
               };
-              axios.post("http://localhost:5000/user", data).then((res) => {
-                if (res.status === 200) {
-                  navigate(from, { replace: true });
-                }
-              });
+              axios
+                .post(
+                  "https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/user",
+                  data
+                )
+                .then((res) => {
+                  if (res.status === 200) {
+                    navigate(from, { replace: true });
+                  }
+                });
               setLoader(false);
             })
             .catch((err) => {
@@ -72,11 +77,16 @@ const Authentication = () => {
       .then((res) => {
         const { uid, displayName, email, photoURL } = res.user;
         const data = { uid, displayName, email, photoURL };
-        axios.post("http://localhost:5000/user", data).then((res) => {
-          if (res.status === 200) {
-            navigate(from, { replace: true });
-          }
-        });
+        axios
+          .post(
+            "https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/user",
+            data
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((err) => {
         setErrMsg(err.code);

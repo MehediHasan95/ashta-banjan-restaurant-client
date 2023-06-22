@@ -24,14 +24,14 @@ const ChefRecommends = () => {
   ];
 
   return (
-    <div className="my-20">
+    <div className="my-20 px-2">
       <div className="text-center mb-10">
         <p className="text-beer italic">---Should Try---</p>
         <h1 className="text-4xl font-bold mt-2">
           CHEF <span className="text-beer">RECOMMENDS</span>
         </h1>
       </div>
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
         {data.map((e, index) => (
           <FoodCard key={index} item={e} />
         ))}

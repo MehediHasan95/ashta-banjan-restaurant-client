@@ -110,7 +110,7 @@ const Navbar = () => {
                         <NavLink to="/admin/home">
                           {({ isActive }) => (
                             <button className={isActive ? active : inActive}>
-                              {user?.displayName}'s Account
+                              {user?.displayName?.trim()}'s Account
                             </button>
                           )}
                         </NavLink>
@@ -120,7 +120,7 @@ const Navbar = () => {
                         <NavLink to="/account/dashboard">
                           {({ isActive }) => (
                             <button className={isActive ? active : inActive}>
-                              {user?.displayName}'s Account
+                              {user?.displayName?.trim()}'s Account
                             </button>
                           )}
                         </NavLink>

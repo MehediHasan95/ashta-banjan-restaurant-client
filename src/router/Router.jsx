@@ -17,6 +17,9 @@ import AdminHome from "../components/admin/AdminHome";
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import ManageItems from "../components/admin/ManageItems";
 import UpdateItems from "../components/admin/UpdateItems";
+import Payment from "../components/pages/Payment";
+import MyOrder from "../components/pages/MyOrder";
+import ManageOrder from "../components/admin/ManageOrder";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,14 @@ const router = createBrowserRouter([
             path: "cart",
             element: <MyCart />,
           },
+          {
+            path: "payment",
+            element: <Payment />,
+          },
+          {
+            path: "myorder",
+            element: <MyOrder />,
+          },
         ],
       },
       {
@@ -92,10 +103,16 @@ const router = createBrowserRouter([
         element: <ManageItems />,
       },
       {
+        path: "booking",
+        element: <ManageOrder />,
+      },
+      {
         path: "update/:id",
         element: <UpdateItems />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/menu/${params.id}`),
+          fetch(
+            `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/menu/${params.id}`
+          ),
       },
     ],
   },

@@ -11,7 +11,7 @@ const useMenu = (page, limit) => {
 
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/menu?page=${page}&limit=${limit}`
+        `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/menu?page=${page}&limit=${limit}`
       );
       return res.data;
     },

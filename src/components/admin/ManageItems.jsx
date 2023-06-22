@@ -10,16 +10,20 @@ const ManageItems = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const handleDeleteUser = (_id) => {
-    axiosSecure.delete(`http://localhost:5000/menu/${_id}`).then((res) => {
-      if (res.data.acknowledged) {
-        refetch();
-        swal("Item has been deleted successful", {
-          icon: "success",
-          buttons: false,
-          timer: 2000,
-        });
-      }
-    });
+    axiosSecure
+      .delete(
+        `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/menu/${_id}`
+      )
+      .then((res) => {
+        if (res.data.acknowledged) {
+          refetch();
+          swal("Item has been deleted successful", {
+            icon: "success",
+            buttons: false,
+            timer: 2000,
+          });
+        }
+      });
   };
 
   return (

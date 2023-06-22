@@ -3,13 +3,13 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
+const axiosSecure = axios.create({
+  baseURL: "https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app",
+});
+
 const useAxiosSecure = () => {
   const { userSignOut } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000",
-  });
 
   useEffect(() => {
     axiosSecure.interceptors.request.use(
@@ -39,7 +39,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, [navigate, axiosSecure, userSignOut]);
+  }, [navigate, userSignOut]);
 
   return [axiosSecure];
 };

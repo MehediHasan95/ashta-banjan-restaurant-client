@@ -1,5 +1,6 @@
 import MenuCard from "../shared/MenuCard";
 import useMenuCategory from "../../hooks/useMenuCategory";
+import { Link } from "react-router-dom";
 
 const OurMenu = () => {
   const [popularMenu] = useMenuCategory("popular");
@@ -18,9 +19,11 @@ const OurMenu = () => {
         ))}
       </div>
       <p className="text-center my-5">
-        <button className="px-4 py-2 border-b-4 border-deepbeer rounded-lg hover:text-deepbeer">
-          View Full Menu
-        </button>
+        <Link to="/menu">
+          <button className="px-4 py-2 border-b-4 border-deepbeer rounded-lg hover:text-deepbeer">
+            View Full Menu
+          </button>
+        </Link>
       </p>
     </div>
   );

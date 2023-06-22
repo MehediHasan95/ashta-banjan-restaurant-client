@@ -87,7 +87,7 @@ const AdminDashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="cart">
+              <NavLink to="booking">
                 {({ isActive }) => (
                   <button className={isActive ? active : inActive}>
                     <FontAwesomeIcon icon={faBook} className="me-3" />

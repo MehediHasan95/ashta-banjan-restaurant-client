@@ -28,19 +28,10 @@ const MyAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="reservation">
+              <NavLink to="myorder">
                 {({ isActive }) => (
                   <button className={isActive ? active : inActive}>
-                    Reservation
-                  </button>
-                )}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="payment">
-                {({ isActive }) => (
-                  <button className={isActive ? active : inActive}>
-                    Payment History
+                    My Order
                   </button>
                 )}
               </NavLink>

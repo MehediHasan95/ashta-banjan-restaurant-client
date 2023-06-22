@@ -6,7 +6,7 @@ const OurFeatures = () => {
       <div>
         <div className="text-center mb-10">
           <p className="text-beer italic">---Check it out---</p>
-          <h1 className="text-4xl font-bold mt-2">
+          <h1 className="text-4xl font-bold mt-2 text-white">
             FROM OUR <span className="text-beer">MENU</span>
           </h1>
         </div>

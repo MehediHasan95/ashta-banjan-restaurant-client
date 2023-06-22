@@ -5,7 +5,7 @@ const useMenuCategory = (category, page, limit) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/category?category=${category}&page=${page}&limit=${limit}`
+      `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/category?category=${category}&page=${page}&limit=${limit}`
     )
       .then((res) => res.json())
       .then((res) => {

@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useCart from "../../hooks/useCart";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [data, refetch] = useCart();
@@ -13,14 +14,17 @@ const MyCart = () => {
         (previous, current) => previous + current.price,
         0
       );
-      setSubTotal(total);
+      setSubTotal(total.toFixed(2));
     }
   }, [data]);
 
   const handleRemoveCartItem = (_id) => {
-    fetch(`http://localhost:5000/carts/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/carts/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         if (res.acknowledged) {
@@ -78,15 +82,19 @@ const MyCart = () => {
           <h1 className="text-xl">Order Summary</h1>
           <div className="flex justify-between my-3">
             <p>Subtotal ({data.length} items)</p>
-            <p>${subTotal.toFixed(2)}</p>
+            <p>${subTotal}</p>
           </div>
           <div className="flex justify-between my-3">
             <p>Total</p>
-            <p>${subTotal.toFixed(2)}</p>
+            <p>${subTotal}</p>
           </div>
-          <button className="bg-beer hover:bg-deepbeer text-white p-2 w-full">
-            PROCEED TO CHECKOUT (0)
-          </button>
+          {data.length > 0 && (
+            <Link to="/account/payment">
+              <button className="bg-beer hover:bg-deepbeer text-white p-2 w-full">
+                PROCEED TO CHECKOUT
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

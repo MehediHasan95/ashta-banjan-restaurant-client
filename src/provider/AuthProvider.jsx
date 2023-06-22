@@ -19,13 +19,16 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (result) => {
       if (result) {
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ uid: result.uid }),
-        })
+        fetch(
+          "https://ashta-banjan-restaurant-server-mehedihasan95.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ uid: result.uid }),
+          }
+        )
           .then((res) => res.json())
           .then((res) => {
             localStorage.setItem("access-token", res.token);
